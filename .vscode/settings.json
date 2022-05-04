@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.csv": "csv",
+        "controlDict": "OpenFOAM",
+        "blockMeshDict": "OpenFOAM",
+        "*.so": "bat",
+        "*.H": "cpp",
+        "passiveTransportFoam.C": "cpp"
+    }
+}
