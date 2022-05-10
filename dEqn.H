@@ -9,6 +9,9 @@
     );
 
     dEqn.relax();
+
     fvOptions.constrain(dEqn);
-    fvOptions.correct(driftDensity);
+
+    dEqn.solve();
     
+    fvOptions.correct(driftDensity);

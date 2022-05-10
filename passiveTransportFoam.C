@@ -158,7 +158,6 @@ int main(int argc, char *argv[])
             while (pimple.correct())
             {
                 #include "pEqn.H"
-                #include "dEqn.H"
             }
 
             if (pimple.turbCorr())
@@ -166,7 +165,10 @@ int main(int argc, char *argv[])
                 laminarTransport.correct();
                 turbulence->correct();
             }
+
         }
+
+        #include "dEqn.H"
 
         runTime.write();
 

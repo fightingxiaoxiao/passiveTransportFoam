@@ -70,6 +70,7 @@ dimensionedScalar S_ct("S_ct",
                         dimensionSet(0, 0, 0, 0, 0, 0 ,0), 
                         transportProperties); 
 
+Info<< "Reading field Wf\n" << endl;
 volVectorField Wf
 (
     IOobject
