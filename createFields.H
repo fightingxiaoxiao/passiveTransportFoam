@@ -84,18 +84,12 @@ volVectorField Wf
     mesh
 );
 
-surfaceScalarField phiWf
-(
-    IOobject
-    (
-        "phiWf",
-        runTime.timeName(),
-        mesh,
-        IOobject::READ_IF_PRESENT,
-        IOobject::AUTO_WRITE
-    ),
-    fvc::flux(Wf)
-);
+surfaceScalarField phiWf(fvc::flux(Wf));
+
+forAll(phiWf.boundaryFieldRef(),i)
+{
+    phiWf.boundaryFieldRef()[i] = Zero;
+}
 
 singlePhaseTransportModel laminarTransport(U, phi);
 
