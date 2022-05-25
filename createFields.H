@@ -86,11 +86,6 @@ volVectorField Wf
 
 surfaceScalarField phiWf(fvc::flux(Wf));
 
-forAll(phiWf.boundaryFieldRef(),i)
-{
-    phiWf.boundaryFieldRef()[i] = Zero;
-}
-
 singlePhaseTransportModel laminarTransport(U, phi);
 
 autoPtr<incompressible::turbulenceModel> turbulence
