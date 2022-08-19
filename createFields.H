@@ -84,7 +84,20 @@ volVectorField Wf
     mesh
 );
 
-surfaceScalarField phiWf(fvc::flux(Wf));
+Info<< "Reading/calculating face flux field phi\n" << endl;
+
+surfaceScalarField phiWf
+(
+    IOobject
+    (
+        "phiWf",
+        runTime.timeName(),
+        mesh,
+        IOobject::NO_READ,
+        IOobject::NO_WRITE
+    ),
+    fvc::flux(Wf)
+);
 
 singlePhaseTransportModel laminarTransport(U, phi);
 
