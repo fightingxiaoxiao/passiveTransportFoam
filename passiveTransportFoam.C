@@ -167,9 +167,17 @@ int main(int argc, char *argv[])
             }
 
         }
+    
+        word simlationType(turbulenceProperties_.lookup("simulationType"));
 
-        #include "dEqn.H"
-
+        if(simlationType == "RAS")
+        {
+            #include "dEqn_RAS.H"
+        }
+        else
+        {
+            #include "dEqn.H"
+        }
         runTime.write();
 
         runTime.printExecutionTime(Info);

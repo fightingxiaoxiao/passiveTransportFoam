@@ -106,5 +106,21 @@ autoPtr<incompressible::turbulenceModel> turbulence
     incompressible::turbulenceModel::New(U, phi, laminarTransport)
 );
 
+IOdictionary turbulenceProperties_
+(
+    IOobject
+    (
+        "turbulenceProperties",
+        runTime.constant(),
+        mesh,
+        IOobject::MUST_READ_IF_MODIFIED,
+        IOobject::NO_WRITE
+    )
+);
+
+
+
+//Info << isRAS << endl;
+
 #include "createMRF.H"
 #include "createFvOptions.H"
